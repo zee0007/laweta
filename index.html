@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WARSHOL | Laweta Warszawa 24/7 | 513510450</title>
+  <meta
+    name="description"
+    content="WARSHOL - całodobowe holowanie, tania laweta i pomoc drogowa 24/7 w Warszawie. Holowanie samochodu i motocykla, autopomoc, dowóz paliwa, odpalanie auta, wymiana koła. Zadzwoń 513510450."
+  />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #121212;
+      --accent: #ff2d2d;
+      --text: #f7f7f7;
+      --muted: #c7c7c7;
+      --shadow: rgba(255, 45, 45, 0.35);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 15% 20%, rgba(255, 45, 45, 0.08), transparent 25%),
+        radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.05), transparent 18%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom: 2px solid rgba(255, 45, 45, 0.35);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #000;
+      background: var(--accent);
+      font-weight: 800;
+      box-shadow: 0 0 0 2px rgba(255, 45, 45, 0.25);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      color: #000;
+      background: var(--accent);
+      box-shadow: 0 14px 40px var(--shadow);
+      text-transform: uppercase;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.secondary {
+      color: var(--text);
+      background: transparent;
+      border-color: rgba(255, 45, 45, 0.6);
+      box-shadow: inset 0 0 0 1px rgba(255, 45, 45, 0.35);
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 30px 20px 80px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: center;
+      padding: 32px;
+      margin-top: 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.75));
+      border: 2px solid rgba(255, 45, 45, 0.25);
+      box-shadow: 0 14px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    h1 { margin: 0 0 10px; font-size: 34px; letter-spacing: -0.4px; text-transform: uppercase; }
+    h2 { margin-top: 40px; margin-bottom: 12px; letter-spacing: -0.2px; text-transform: uppercase; }
+    p { color: var(--muted); line-height: 1.7; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 10px; }
+    .tag { padding: 8px 10px; background: rgba(255, 45, 45, 0.16); border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 700; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 45, 45, 0.2);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h3 { margin: 0 0 8px; text-transform: uppercase; }
+    .card p { margin: 0; }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      min-height: 280px;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 45, 45, 0.16), transparent 45%),
+        linear-gradient(145deg, rgba(14, 14, 14, 0.95), rgba(6, 6, 6, 0.85));
+      border: 2px solid rgba(255, 45, 45, 0.25);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .chip { padding: 6px 10px; background: rgba(255, 45, 45, 0.16); color: var(--text); border-radius: 999px; font-size: 12px; font-weight: 700; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 45, 45, 0.12);
+      margin: 6px 8px 6px 0;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 60px auto 20px;
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      .btn { width: 100%; }
+      .cta-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span class="badge">24/7</span>
+        <div>
+          WARSHOL · Laweta Warszawa
+          <div style="font-size: 12px; color: var(--muted);">holowanie samochodu! autopomoc! dowóz paliwa!</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="tel:+48513510450">📞 Zadzwoń 513 510 450</a>
+        <button class="btn secondary" type="button" data-sms-location>📍 SMS z lokalizacją</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Laweta i pomoc drogowa 24/7 – Warszawa natychmiast!</h1>
+        <p>
+          Awaria? Kolizja? Auto nie odpala? WARSHOL rzuca lawetę od ręki! Tanie holowanie, autopomoc,
+          odpalanie auta boosterem, dowóz paliwa, wymiana koła, transport samochodu i transport motocykla.
+          Przyjazd nawet w 20 minut – dzwonisz, a my już jedziemy!
+        </p>
+        <div class="tags">
+          <span class="tag">tania laweta</span>
+          <span class="tag">tanie holowanie</span>
+          <span class="tag">Warszawa i okolice</span>
+          <span class="tag">pomoc drogowa 24/7</span>
+          <span class="tag">holowanie samochodu</span>
+          <span class="tag">dowóz paliwa</span>
+        </div>
+        <div class="cta-row" style="margin-top: 16px;">
+          <a class="btn" href="tel:+48513510450">🚨 Potrzebuję lawety teraz</a>
+          <button class="btn secondary" id="smsLocationBtn" type="button" data-sms-location>📍 SMS z lokalizacją</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Całodobowe holowanie · 513 510 450</h3>
+        <p>
+          Dyżurujemy non stop – awaria, kolizja, auto nie odpala? Holowanie, autopomoc, odpalanie auta,
+          wymiana koła, dowóz paliwa. Warszawa 24/7, a po ustaleniach – cała Polska. Zero gadania, sama akcja!
+        </p>
+        <div class="chips">
+          <span class="chip">holowanie samochodu</span>
+          <span class="chip">transport motocykla</span>
+          <span class="chip">awaria</span>
+          <span class="chip">pomoc na drodze</span>
+          <span class="chip">autopomoc</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/hero-truck.svg" alt="Laweta WARSHOL w akcji nocą" />
+      </div>
+    </section>
+
+    <section>
+      <h2>Usługi WARSHOL</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Holowanie samochodów i motocykli</h3>
+          <p>Laweta i tanie holowanie pojazdów osobowych, dostawczych oraz motocykli. Bez zbędnych formalności – ładujemy, spinamy pasy i jedziemy.</p>
+        </div>
+        <div class="card">
+          <h3>Pomoc na drodze 24/7</h3>
+          <p>Odpalanie auta boosterem lub kablami, wymiana koła, awaryjne otwarcie, zabezpieczenie miejsca zdarzenia. Pomoc drogowa 24/7 w Warszawie – bez czekania.</p>
+        </div>
+        <div class="card">
+          <h3>Dowóz paliwa i małe naprawy</h3>
+          <p>Dowóz paliwa na trasie, wsparcie przy braku ładowania, uzupełnienie płynów – przyjeżdżamy, dolewamy, odpalasz i jedziesz dalej.</p>
+        </div>
+        <div class="card">
+          <h3>Transport w całej Polsce</h3>
+          <p>Transport samochodu na trasach krajowych po wcześniejszym ustaleniu szczegółów. Przewóz aut premium, pojazdów zabytkowych i uszkodzonych – ostrożnie, ale szybko.</p>
+        </div>
+        <div class="card">
+          <h3>Awaryjne odpalanie auta</h3>
+          <p>Rozładowany akumulator? Przyjeżdżamy z boosterem, kablami i miernikiem, żeby od razu uruchomić samochód i ruszyć w drogę.</p>
+        </div>
+        <div class="card">
+          <h3>Ratownictwo powypadkowe</h3>
+          <p>Wsparcie po kolizji – zabezpieczenie miejsca, szybkie załadunki na lawetę, transport do warsztatu lub wskazanego miejsca bez zbędnych formalności.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Dlaczego my?</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Ekspresowy dojazd</h3>
+          <p>Warszawa i okolice – jesteśmy u Ciebie nawet w 20 minut. Każdy klient traktowany priorytetowo.</p>
+        </div>
+        <div class="card">
+          <h3>Jasne stawki</h3>
+          <p>Wycena przez telefon, bez ukrytych kosztów. Tania laweta i tanie holowanie z pełną przejrzystością.</p>
+        </div>
+        <div class="card">
+          <h3>Całodobowy kontakt</h3>
+          <p>Odbieramy telefon całą dobę, 7 dni w tygodniu, również w święta. Możesz zadzwonić lub wysłać SMS z lokalizacją.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Jak zamówić lawetę?</h2>
+      <div class="card">
+        <div class="pill" style="flex-wrap: wrap; gap: 10px;">
+          <span>1. Zadzwoń lub wyślij SMS z lokalizacją:</span>
+          <a class="btn" href="tel:+48513510450" style="padding: 8px 12px; font-size: 14px;">📞 513 510 450</a>
+          <button class="btn secondary" type="button" data-sms-location style="padding: 8px 12px; font-size: 14px;">📍 SMS z lokalizacją</button>
+        </div>
+        <div class="pill">2. Podajesz punkt startu i cel holowania / transportu motocykla</div>
+        <div class="pill">3. Przyjeżdżamy, ładujemy i po wykonaniu usługi rozliczamy się na miejscu – szybko i transparentnie</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    WARSHOL – tania laweta Warszawa | całodobowe holowanie i pomoc drogowa 24/7. Telefon: <a href="tel:+48513510450" style="color: var(--accent); text-decoration: none;">513 510 450</a>.
+  </footer>
+
+  <script>
+    const SMS_PHONE_NUMBER = "+48513510450";
+    const smsButtons = document.querySelectorAll("[data-sms-location]");
+
+    const buildSmsUrl = (encodedMessage) => {
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      return isIOS
+        ? `sms:${SMS_PHONE_NUMBER}&body=${encodedMessage}`
+        : `sms:${SMS_PHONE_NUMBER}?body=${encodedMessage}`;
+    };
+
+    const handleSmsClick = () => {
+      if (!navigator.geolocation) {
+        alert("Twoja przeglądarka nie obsługuje geolokalizacji.");
+        window.location.href = `sms:${SMS_PHONE_NUMBER}`;
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
+          const message = `Potrzebuję holowania! Natychmiast! Moja lokalizacja: ${mapsUrl}`;
+          const encodedMessage = encodeURIComponent(message);
+          const smsUrl = buildSmsUrl(encodedMessage);
+          window.location.href = smsUrl;
+        },
+        (error) => {
+          console.error(error);
+          alert("Nie udało się pobrać lokalizacji. Otwieram SMS bez lokalizacji.");
+          window.location.href = `sms:${SMS_PHONE_NUMBER}`;
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0,
+        }
+      );
+    };
+
+    smsButtons.forEach((btn) => btn.addEventListener("click", handleSmsClick));
+  </script>
+</body>
+</html>
